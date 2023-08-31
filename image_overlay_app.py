@@ -84,7 +84,8 @@ def image_overlay_app():
         selected_image_base.write(uploaded_image_base.read())
         selected_image_base = selected_image_base.name
     else:
-        selected_image_base = col1.selectbox("OR Select a preset base:", all_image_files_base,
+        sorted_all_image_files_base = sorted(all_image_files_base)
+        selected_image_base = col1.selectbox("OR Select a preset base:", sorted_all_image_files_base,
                                              format_func=lambda x: os.path.basename(x))
         if selected_image_base:
             col1.image(Image.open(selected_image_base), caption="Base Preview",
@@ -98,7 +99,8 @@ def image_overlay_app():
         selected_image_overlay.write(uploaded_image_overlay.read())
         selected_image_overlay = selected_image_overlay.name
     else:
-        selected_image_overlay = col2.selectbox("OR Select an overlay:", all_image_files_overlay,
+        sorted_all_image_files_overlay = sorted(all_image_files_overlay)
+        selected_image_overlay = col2.selectbox("OR Select an overlay:", sorted_all_image_files_overlay,
                                                 format_func=lambda x: os.path.basename(x))
         if selected_image_overlay:
             col2.image(Image.open(selected_image_overlay), caption="Overlay Preview",
