@@ -45,18 +45,20 @@ def overlay_images(image_path_a, image_path_b):
 
 def image_overlay_app():
     st.title("XIV Texture - Overlay Images")
+    st.write("#### Presets (Optional)")
 
     overlay_folder = "overlay_texture"
     base_folder = "base_texture"
 
     # Get subfolders for race (female only)
     subfolders_race = get_subfolders(overlay_folder)
-    selected_subfolder_race = st.selectbox("Select a race (female only):", subfolders_race)
+    selected_subfolder_race = st.selectbox("Presets (female only):", sorted(subfolders_race))
 
     # Get subfolders for race options (female only)
     subfolders_options = get_subfolders(os.path.join(overlay_folder, selected_subfolder_race))
+    sorted_subfolders_options = sorted(subfolders_options)
 
-    filter_option = st.selectbox("Options:", subfolders_options)
+    filter_option = st.selectbox("Preset options:", sorted_subfolders_options)
 
     selected_subfolders_options = [filter_option]
 
@@ -69,6 +71,8 @@ def image_overlay_app():
 
         folder_base_sub = os.path.join(base_folder, selected_subfolder_race, subfolder)
         all_image_files_base.extend(get_image_files(folder_base_sub))
+
+    st.write("#### Combine Textures")
 
     col1, col2 = st.columns(2)
 
@@ -128,17 +132,6 @@ def image_overlay_app():
                 if col2.button("Textools"):
                     webbrowser.open_new_tab(
                         "https://media.discordapp.net/attachments/994181303522041906/1065732743985647777/makeup.png")
-
-    # # Help
-    # st.write("#### How to import into your game:")
-    # col1, col2 = st.columns(2)
-    #
-    # if col1.button("Penumbra"):
-    #     webbrowser.open_new_tab("https://loosetexturecompiler.zip")
-    #
-    # if col2.button("Textools"):
-    #     webbrowser.open_new_tab(
-    #         "https://media.discordapp.net/attachments/994181303522041906/1065732743985647777/makeup.png")
 
 
 # Multi-Page App
