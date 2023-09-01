@@ -124,16 +124,16 @@ def image_overlay_app():
                 mime="image/png"
             )
 
-            # How to import into your game section
-            with st.expander("How do I import this into my game?"):
-                col1, col2 = st.columns(2)
+    # How to import into your game section
+    with st.expander("How do I import textures into my game?"):
+        col1, col2 = st.columns(2)
 
-                if col1.button("Penumbra"):
-                    webbrowser.open_new_tab("https://loosetexturecompiler.zip")
+        if col1.button("Penumbra"):
+            webbrowser.open_new_tab("https://loosetexturecompiler.zip")
 
-                if col2.button("Textools"):
-                    webbrowser.open_new_tab(
-                        "https://media.discordapp.net/attachments/994181303522041906/1065732743985647777/makeup.png")
+        if col2.button("Textools"):
+            webbrowser.open_new_tab(
+                "https://media.discordapp.net/attachments/994181303522041906/1065732743985647777/makeup.png")
 
 
 # Multi-Page App
